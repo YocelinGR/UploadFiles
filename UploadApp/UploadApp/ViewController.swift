@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     // Variables
     var currentImage: Int = 0
+    var maxImageListSize: Int = 0
     let photoList: Array = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3"), UIImage(named: "4"), UIImage(named: "5")]
     let placeholerImage = UIImage(named: "placeholder")
     
@@ -29,10 +30,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ImageCarousel.image = photoList[currentImage]
         LeftOut.isEnabled = false
         
-        downloadImage()
+        donwloadAll()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,18 +48,18 @@ class ViewController: UIViewController {
     @IBAction func RightAction(_ sender: Any) {
         LeftOut.isEnabled = true
         currentImage = currentImage + 1
-        if currentImage < photoList.count{
-            ImageCarousel.image = photoList[currentImage]
+        if currentImage < images.count{
+            ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
         } else {
             currentImage = 0
-            ImageCarousel.image = photoList[currentImage]
+            ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
         }
     }
     
     @IBAction func LeftAction(_ sender: Any) {
         currentImage = currentImage - 1
         if currentImage >= 0{
-            ImageCarousel.image = photoList[currentImage]
+            ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
         } else {
             LeftOut.isEnabled = false
         }
@@ -77,10 +77,10 @@ class ViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.center = self.view.center
         self.view.addSubview(activityIndicator)
-        let imagesCount = images.count
+        let imagesCount = maxImageListSize
         let storageRef = storage.reference()
         let imageRef = storageRef.child("uploadapp").child("E0JQZWeWPrYvDUAF98QLanwUurk1").child("\(imagesCount + 1).jpg")
-        
+        maxImageListSize += 1
         // metadata
         let uploadMetaData = StorageMetadata()
         uploadMetaData.contentType = "image/jpeg"
@@ -97,11 +97,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func downloadImage(){
-        currentImage += 1
-        let storageRef = storage.reference()
-        let imageDownloadUrlRef = storageRef.child("uploadapp/E0JQZWeWPrYvDUAF98QLanwUurk1/\(currentImage).jpg")
-        
+    func downloadImage(imageDownloadUrlRef: StorageReference){
         images.append(imageDownloadUrlRef)
         
         
@@ -112,6 +108,26 @@ class ViewController: UIViewController {
                 print("URL: \(String(describing: url!))")
             }
             
+        }
+    }
+    func donwloadAll(){
+        let storageReference = storage.reference().child("uploadapp/E0JQZWeWPrYvDUAF98QLanwUurk1")
+        storageReference.listAll { (result, error) in
+          if let error = error {
+            print(error.localizedDescription)
+          }
+          for item in result.items {
+            self.downloadImage(imageDownloadUrlRef: item)
+            print("ITEMS: \(item)")
+          }
+            
+            print(">>>>>>>>><images: \(self.images)")
+            if self.images.count > 0{
+                self.ImageCarousel.sd_setImage(with: self.images[self.currentImage], placeholderImage: self.placeholerImage)
+            } else {
+                self.ImageCarousel.image = self.photoList[self.currentImage]
+            }
+            self.maxImageListSize = self.images.count
         }
     }
 }
@@ -128,41 +144,3 @@ extension ViewController: UIImagePickerControllerDelegate{
 extension ViewController: UINavigationControllerDelegate{
     
 }
-
-/*extension ViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCellXIB", for: indexPath) as! ImageCollectionViewCell
-        
-        
-        let ref = images[indexPath.item]
-        
-        cell.imageViewCell.sd_setImage(with: ref, placeholderImage: placeholerImage)
-        
-        ref.downloadURL { (url, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            } else {
-                print("URL: \(String(describing: url!))")
-            }
-            
-        }
-        
-        return cell
-    }
-    
-    
-}
-
-extension ViewController: UICollectionViewDelegate{
-    
-}
-// maneja lo referente a
-extension ViewController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
-    }
-}*/
-
