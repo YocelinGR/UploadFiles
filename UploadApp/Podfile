@@ -16,4 +16,8 @@ target 'UploadApp' do
     # Pods for testing
   end
 
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
+  pod 'Firebase/RemoteConfig'
+
 end
