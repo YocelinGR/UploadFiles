@@ -11,6 +11,7 @@
 		7E30216CF8F151F1F5C5F49C /* Pods_UploadApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FDFB44FB4E99BC1CD63606 /* Pods_UploadApp.framework */; };
 		C0844E9107FFC77F337F2D75 /* Pods_UploadAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C60BA15250BCC258A28A848 /* Pods_UploadAppTests.framework */; };
 		F15A67BB2619A732008D0F41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F15A67BA2619A732008D0F41 /* GoogleService-Info.plist */; };
+		F16C7DA1261A804C00DDF5BD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16C7DA0261A804C00DDF5BD /* DetailViewController.swift */; };
 		F1FE9B372618EFEB00927063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FE9B362618EFEB00927063 /* AppDelegate.swift */; };
 		F1FE9B392618EFEB00927063 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FE9B382618EFEB00927063 /* SceneDelegate.swift */; };
 		F1FE9B3B2618EFEB00927063 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FE9B3A2618EFEB00927063 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		DBB7FBEA5BA0455B6C8AAC8E /* Pods-UploadApp-UploadAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UploadApp-UploadAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-UploadApp-UploadAppUITests/Pods-UploadApp-UploadAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E78388191146B42F101D1E0B /* Pods-UploadAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UploadAppTests.release.xcconfig"; path = "Target Support Files/Pods-UploadAppTests/Pods-UploadAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		F15A67BA2619A732008D0F41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F16C7DA0261A804C00DDF5BD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F1FE9B332618EFEB00927063 /* UploadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UploadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FE9B362618EFEB00927063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1FE9B382618EFEB00927063 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				F1FE9B412618EFED00927063 /* LaunchScreen.storyboard */,
 				F15A67BA2619A732008D0F41 /* GoogleService-Info.plist */,
 				F1FE9B442618EFED00927063 /* Info.plist */,
+				F16C7DA0261A804C00DDF5BD /* DetailViewController.swift */,
 			);
 			path = UploadApp;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				F1FE9B3B2618EFEB00927063 /* ViewController.swift in Sources */,
 				F1FE9B372618EFEB00927063 /* AppDelegate.swift in Sources */,
 				F1FE9B392618EFEB00927063 /* SceneDelegate.swift in Sources */,
+				F16C7DA1261A804C00DDF5BD /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
