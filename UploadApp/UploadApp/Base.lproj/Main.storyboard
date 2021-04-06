@@ -174,11 +174,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6V2-dG-dej">
-                                <rect key="frame" x="131" y="88" width="152" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="TWi-8Y-AZQ"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6V2-dG-dej">
+                                <rect key="frame" x="131" y="88" width="152" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="UPLOAD IMAGE">
                                     <color key="titleColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -186,39 +184,25 @@
                                     <action selector="uploadImage:" destination="FJ1-QL-tco" eventType="touchUpInside" id="dis-TX-VsF"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tke-MA-NAz">
-                                <rect key="frame" x="37" y="212" width="341" height="208"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="208" id="HQ4-Jq-xmc"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tke-MA-NAz">
+                                <rect key="frame" x="35" y="157" width="359" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="hsc-ID-HO4">
-                                <rect key="frame" x="161" y="445" width="98" height="41"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="QP9-xt-Yeh">
+                                <rect key="frame" x="131" y="394" width="191" height="22"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emo-Cp-GOU">
-                                        <rect key="frame" x="0.0" y="0.0" width="21" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                        <color key="tintColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="arrowshape.turn.up.backward.fill" catalog="system">
-                                            <color key="titleColor" systemColor="opaqueSeparatorColor"/>
-                                            <color key="titleShadowColor" systemColor="opaqueSeparatorColor"/>
-                                        </state>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TC0-LP-f9O">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="22"/>
+                                        <state key="normal" title="Button" image="arrowshape.turn.up.left.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="LeftAction:" destination="FJ1-QL-tco" eventType="touchUpInside" id="ach-Ms-oRI"/>
-                                            <action selector="LeftOut:" destination="fEd-XA-ao1" eventType="touchUpInside" id="oTU-rO-h4k"/>
+                                            <action selector="LeftAction:" destination="FJ1-QL-tco" eventType="touchUpInside" id="Dqu-sE-K08"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMX-th-Awx">
-                                        <rect key="frame" x="77" y="0.0" width="21" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                        <color key="tintColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system">
-                                            <color key="titleColor" systemColor="opaqueSeparatorColor"/>
-                                            <color key="titleShadowColor" systemColor="opaqueSeparatorColor"/>
-                                        </state>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFt-aj-vyI">
+                                        <rect key="frame" x="116" y="0.0" width="75" height="22"/>
+                                        <state key="normal" title="Button" image="arrowshape.turn.up.right.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="RightAction:" destination="fEd-XA-ao1" eventType="touchUpInside" id="0PR-Ey-hxQ"/>
-                                            <action selector="RightAction:" destination="FJ1-QL-tco" eventType="touchUpInside" id="byK-hs-joi"/>
+                                            <action selector="RightAction:" destination="FJ1-QL-tco" eventType="touchUpInside" id="zly-5n-h0e"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -226,27 +210,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d7H-9b-enl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Tke-MA-NAz" firstAttribute="leading" secondItem="d7H-9b-enl" secondAttribute="leading" constant="37" id="69K-Dd-V0P"/>
-                            <constraint firstItem="6V2-dG-dej" firstAttribute="centerX" secondItem="Tke-MA-NAz" secondAttribute="centerX" id="BYs-Cu-mZZ"/>
-                            <constraint firstItem="6V2-dG-dej" firstAttribute="centerX" secondItem="h8T-hn-HuE" secondAttribute="centerX" id="Ql1-O5-yxI"/>
-                            <constraint firstItem="d7H-9b-enl" firstAttribute="bottom" secondItem="hsc-ID-HO4" secondAttribute="bottom" constant="131" id="Tfq-P2-ufh"/>
-                            <constraint firstItem="Tke-MA-NAz" firstAttribute="centerX" secondItem="hsc-ID-HO4" secondAttribute="centerX" id="X9O-cb-PeO"/>
-                            <constraint firstItem="6V2-dG-dej" firstAttribute="top" secondItem="d7H-9b-enl" secondAttribute="top" constant="69" id="XSw-kA-PY3"/>
-                            <constraint firstItem="hsc-ID-HO4" firstAttribute="top" secondItem="Tke-MA-NAz" secondAttribute="bottom" constant="44" id="aEg-yt-3IR"/>
-                            <constraint firstItem="6V2-dG-dej" firstAttribute="leading" secondItem="d7H-9b-enl" secondAttribute="leading" constant="131" id="jS5-3G-bfj"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xKa-1x-lHM"/>
                     <connections>
                         <outlet property="ImageCarousel" destination="Tke-MA-NAz" id="ukO-gN-Phg"/>
-                        <outlet property="LeftOut" destination="emo-Cp-GOU" id="LwR-MC-tgL"/>
+                        <outlet property="LeftOut" destination="TC0-LP-f9O" id="t8r-kv-km0"/>
                         <outlet property="uploadButton" destination="6V2-dG-dej" id="b9c-cG-euE"/>
                         <segue destination="Bwx-DP-106" kind="show" id="ngN-1s-K9I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9A-ae-yCs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="fEd-XA-ao1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1062.3188405797102" y="49.553571428571423"/>
         </scene>
@@ -336,7 +309,7 @@
         <segue reference="xvR-Ne-yIF"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>

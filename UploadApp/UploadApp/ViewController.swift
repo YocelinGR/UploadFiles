@@ -16,8 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var LeftOut: UIButton!
     
-    //@IBOutlet weak var imageCollection: UICollectionView!
-    
     // Variables
     var currentImage: Int = 0
     var maxImageListSize: Int = 0
@@ -31,8 +29,6 @@ class ViewController: UIViewController {
     
 
     override func viewDidLoad() {
-        /*let nib = UINib.init(nibName: "ImageCollectionViewCell", bundle: nil)
-        imageCollection.register(nib, forCellWithReuseIdentifier: "imageCellXIB")*/
         super.viewDidLoad()
         LeftOut.isEnabled = false
         
@@ -149,40 +145,3 @@ extension ViewController: UIImagePickerControllerDelegate{
 extension ViewController: UINavigationControllerDelegate{
     
 }
-
-/*extension ViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCellXIB", for: indexPath) as! ImageCollectionViewCell
-        
-        
-        let ref = images[indexPath.item]
-        
-        cell.imageViewCell.sd_setImage(with: ref, placeholderImage: placeholerImage)
-        
-        /*ref.downloadURL { (url, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            } else {
-                print("URL: \(String(describing: url!))")
-            }
-            
-        }*/
-        
-        return cell
-    }
-    
-    
-}
-
-extension ViewController: UICollectionViewDelegate{
-    
-}
-// maneja lo referente a
-extension ViewController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 50)
-    }
-}*/
