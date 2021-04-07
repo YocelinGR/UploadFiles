@@ -131,6 +131,11 @@ class ViewController: UIViewController {
             self.maxImageListSize = self.images.count
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? DetailViewController
+        vc?.imageRef = self.images[self.currentImage]
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate{

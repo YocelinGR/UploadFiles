@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6V2-dG-dej">
-                                <rect key="frame" x="131" y="88" width="152" height="61"/>
+                                <rect key="frame" x="35" y="88" width="152" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="UPLOAD IMAGE">
                                     <color key="titleColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -184,29 +184,37 @@
                                     <action selector="uploadImage:" destination="FJ1-QL-tco" eventType="touchUpInside" id="dis-TX-VsF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFt-aj-vyI">
+                                <rect key="frame" x="244" y="390" width="75" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrowshape.turn.up.right.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="RightAction:" destination="FJ1-QL-tco" eventType="touchUpInside" id="zly-5n-h0e"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tke-MA-NAz">
-                                <rect key="frame" x="35" y="157" width="359" height="193"/>
+                                <rect key="frame" x="26" y="165" width="359" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="QP9-xt-Yeh">
-                                <rect key="frame" x="131" y="394" width="191" height="22"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TC0-LP-f9O">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="22"/>
-                                        <state key="normal" title="Button" image="arrowshape.turn.up.left.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="LeftAction:" destination="FJ1-QL-tco" eventType="touchUpInside" id="Dqu-sE-K08"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFt-aj-vyI">
-                                        <rect key="frame" x="116" y="0.0" width="75" height="22"/>
-                                        <state key="normal" title="Button" image="arrowshape.turn.up.right.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="RightAction:" destination="FJ1-QL-tco" eventType="touchUpInside" id="zly-5n-h0e"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uk3-Hd-WnE">
+                                <rect key="frame" x="323" y="109" width="62" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" image="eyes.inverse" catalog="system">
+                                    <color key="titleColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Bwx-DP-106" kind="show" identifier="detail" id="RhJ-yn-i2B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TC0-LP-f9O">
+                                <rect key="frame" x="149" y="389" width="75" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrowshape.turn.up.left.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="LeftAction:" destination="FJ1-QL-tco" eventType="touchUpInside" id="Dqu-sE-K08"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d7H-9b-enl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -232,25 +240,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAW-C7-aQP">
-                                <rect key="frame" x="20" y="164" width="212" height="249"/>
+                                <rect key="frame" x="20" y="164" width="374" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Datetime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ri-NQ-eNQ">
-                                <rect key="frame" x="240" y="265" width="115" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjP-Ym-bAF">
-                                <rect key="frame" x="240" y="294" width="37" height="24"/>
+                                <rect key="frame" x="20" y="453" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovj-1S-dsR">
-                                <rect key="frame" x="240" y="377" width="32" height="36"/>
+                                <rect key="frame" x="216" y="592" width="32" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -258,16 +259,19 @@
                                     <color key="titleColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="likeOrDislike:" destination="Bwx-DP-106" eventType="touchUpInside" id="r9D-2u-SRV"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRJ-XS-Bef">
-                                <rect key="frame" x="240" y="236" width="139" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRJ-XS-Bef">
+                                <rect key="frame" x="20" y="421" width="374" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYC-oU-UXM">
-                                <rect key="frame" x="181" y="577" width="52" height="50"/>
+                                <rect key="frame" x="139" y="583" width="52" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -275,12 +279,38 @@
                                     <color key="titleColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.28103422900000002" green="0.34349658430000002" blue="0.85991841550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteImage:" destination="Bwx-DP-106" eventType="touchUpInside" id="KoI-Ph-mxy"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LikeCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ew6-Oo-4Zp">
+                                <rect key="frame" x="247" y="599" width="77" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjP-Ym-bAF">
+                                <rect key="frame" x="20" y="474" width="374" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KOb-Ie-mHu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xfv-GP-dNb"/>
+                    <connections>
+                        <outlet property="deleteButton" destination="NYC-oU-UXM" id="g1L-JK-qW6"/>
+                        <outlet property="detailImage" destination="KAW-C7-aQP" id="okV-dh-Xc7"/>
+                        <outlet property="imageDatetime" destination="1Ri-NQ-eNQ" id="9pm-6m-jcg"/>
+                        <outlet property="imageName" destination="wRJ-XS-Bef" id="z2L-ig-wD5"/>
+                        <outlet property="imageSize" destination="FjP-Ym-bAF" id="FgK-Se-Ye9"/>
+                        <outlet property="likeButton" destination="ovj-1S-dsR" id="6M8-Aw-x82"/>
+                        <outlet property="likeCount" destination="Ew6-Oo-4Zp" id="1tO-Gx-9gA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9t-TF-6py" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -307,10 +337,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="xvR-Ne-yIF"/>
+        <segue reference="RhJ-yn-i2B"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
+        <image name="eyes.inverse" catalog="system" width="128" height="96"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="opaqueSeparatorColor">
