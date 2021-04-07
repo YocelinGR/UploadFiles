@@ -46,9 +46,9 @@ class DetailViewController: UIViewController {
           } else {
             print("wwwwwwwttttt: \(String(describing: metadata))")
             self.detailImage.sd_setImage(with: self.imageRef, placeholderImage: self.placeholerImage)
-            self.imageName.text = metadata?.name
-            self.imageDatetime.text = metadata?.contentType as? String
-            self.imageSize.text = metadata?.bucket as? String
+            self.imageName.text = "Nombre: \(metadata?.name ?? "")"
+            self.imageDatetime.text = "Fecha: \(metadata?.timeCreated ?? Date())"
+            self.imageSize.text = "Size: \(metadata?.size ?? 0)"
           }
         }
     }
@@ -57,6 +57,13 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func deleteImage(_ sender: Any) {
+        imageRef.delete { error in
+          if let error = error {
+            print("An error had happended: \(error)")
+          } else {
+            print("Sucess")
+          }
+        }
     }
     
 }
