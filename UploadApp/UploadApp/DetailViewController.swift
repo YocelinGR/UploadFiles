@@ -58,6 +58,13 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func deleteImage(_ sender: Any) {
+        imageRef.delete { error in
+          if let error = error {
+            print("An error had happended: \(error)")
+          } else {
+            print("Sucess!!")
+          }
+        }
     }
     
 }
