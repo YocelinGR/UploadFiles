@@ -10,13 +10,16 @@ import Firebase
 import CoreServices
 import FirebaseUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,
+                      UICollectionViewDelegate,
+                      UICollectionViewDataSource {
     // Outlets
-    @IBOutlet weak var ImageCarousel: UIImageView!
+    //@IBOutlet weak var ImageCarousel: UIImageView!
     @IBOutlet weak var uploadButton: UIButton!
-    @IBOutlet weak var LeftOut: UIButton!
+    //@IBOutlet weak var LeftOut: UIButton!
     
-    //@IBOutlet weak var imageCollection: UICollectionView!
+    @IBOutlet weak var imageCollection: UICollectionView!
+    var customImageFlowLayout: CustomImageFlowLayout!
     
     // Variables
     var currentImage: Int = 0
@@ -34,9 +37,12 @@ class ViewController: UIViewController {
         /*let nib = UINib.init(nibName: "ImageCollectionViewCell", bundle: nil)
         imageCollection.register(nib, forCellWithReuseIdentifier: "imageCellXIB")*/
         super.viewDidLoad()
-        LeftOut.isEnabled = false
-        
+        //LeftOut.isEnabled = false
         donwloadAll()
+        customImageFlowLayout = CustomImageFlowLayout()
+        imageCollection.collectionViewLayout = customImageFlowLayout
+        imageCollection.backgroundColor = .white
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +55,7 @@ class ViewController: UIViewController {
         print("viewDidAppear")
     }
 
-    @IBAction func RightAction(_ sender: Any) {
+    /*@IBAction func RightAction(_ sender: Any) {
         LeftOut.isEnabled = true
         currentImage = currentImage + 1
         if currentImage < images.count{
@@ -67,7 +73,7 @@ class ViewController: UIViewController {
         } else {
             LeftOut.isEnabled = false
         }
-    }
+    }*/
     
     @IBAction func uploadImage(_ sender: Any) {
         let userImagePicker = UIImagePickerController()
@@ -127,13 +133,27 @@ class ViewController: UIViewController {
           }
             
             print(">>>>>>>>><images: \(self.images)")
-            if self.images.count > 0{
+            /*if self.images.count > 0{
                 self.ImageCarousel.sd_setImage(with: self.images[self.currentImage], placeholderImage: self.placeholerImage)
             } else {
                 self.ImageCarousel.image = self.photoList[self.currentImage]
-            }
+            }*/
             self.maxImageListSize = self.images.count
         }
+        self.imageCollection.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = imageCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
+        print("wwwwwwww: \(images)")
+        print("gggggggggg: \(indexPath)")
+        let image = images[indexPath.row]
+        cell.imageView.sd_setImage(with: image, placeholderImage: placeholerImage)
+        return cell
     }
 }
 
@@ -150,39 +170,3 @@ extension ViewController: UINavigationControllerDelegate{
     
 }
 
-/*extension ViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCellXIB", for: indexPath) as! ImageCollectionViewCell
-        
-        
-        let ref = images[indexPath.item]
-        
-        cell.imageViewCell.sd_setImage(with: ref, placeholderImage: placeholerImage)
-        
-        /*ref.downloadURL { (url, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            } else {
-                print("URL: \(String(describing: url!))")
-            }
-            
-        }*/
-        
-        return cell
-    }
-    
-    
-}
-
-extension ViewController: UICollectionViewDelegate{
-    
-}
-// maneja lo referente a
-extension ViewController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 50)
-    }
-}*/

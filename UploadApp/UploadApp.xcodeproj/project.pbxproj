@@ -20,6 +20,8 @@
 		F1FE9B432618EFED00927063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FE9B412618EFED00927063 /* LaunchScreen.storyboard */; };
 		F1FE9B4E2618EFED00927063 /* UploadAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FE9B4D2618EFED00927063 /* UploadAppTests.swift */; };
 		F1FE9B592618EFEE00927063 /* UploadAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FE9B582618EFEE00927063 /* UploadAppUITests.swift */; };
+		F1FEE243261C40680047A2E2 /* CustomImageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FEE242261C40680047A2E2 /* CustomImageFlowLayout.swift */; };
+		F1FFB768261C386A00A0E67C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FFB767261C386A00A0E67C /* ImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		F1FE9B542618EFEE00927063 /* UploadAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UploadAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FE9B582618EFEE00927063 /* UploadAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAppUITests.swift; sourceTree = "<group>"; };
 		F1FE9B5A2618EFEE00927063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1FEE242261C40680047A2E2 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
+		F1FFB767261C386A00A0E67C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F246EEA3DF78CFD5E71E3CEF /* Pods-UploadAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UploadAppTests.debug.xcconfig"; path = "Target Support Files/Pods-UploadAppTests/Pods-UploadAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +156,8 @@
 				F15A67BA2619A732008D0F41 /* GoogleService-Info.plist */,
 				F1FE9B442618EFED00927063 /* Info.plist */,
 				F16C7DA0261A804C00DDF5BD /* DetailViewController.swift */,
+				F1FFB767261C386A00A0E67C /* ImageCollectionViewCell.swift */,
+				F1FEE242261C40680047A2E2 /* CustomImageFlowLayout.swift */,
 			);
 			path = UploadApp;
 			sourceTree = "<group>";
@@ -413,7 +419,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FEE243261C40680047A2E2 /* CustomImageFlowLayout.swift in Sources */,
 				F1FE9B3B2618EFEB00927063 /* ViewController.swift in Sources */,
+				F1FFB768261C386A00A0E67C /* ImageCollectionViewCell.swift in Sources */,
 				F1FE9B372618EFEB00927063 /* AppDelegate.swift in Sources */,
 				F1FE9B392618EFEB00927063 /* SceneDelegate.swift in Sources */,
 				F16C7DA1261A804C00DDF5BD /* DetailViewController.swift in Sources */,
