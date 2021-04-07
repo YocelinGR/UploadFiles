@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var imageName: UILabel!
     @IBOutlet weak var imageDatetime: UILabel!
@@ -46,9 +47,9 @@ class DetailViewController: UIViewController {
           } else {
             print("wwwwwwwttttt: \(String(describing: metadata))")
             self.detailImage.sd_setImage(with: self.imageRef, placeholderImage: self.placeholerImage)
-            self.imageName.text = metadata?.name
-            self.imageDatetime.text = metadata?.contentType as? String
-            self.imageSize.text = metadata?.bucket as? String
+            self.imageName.text = "Nombre: \(metadata?.name ?? "")"
+            self.imageDatetime.text = "Fecha: \(metadata?.timeCreated ?? Date())"
+            self.imageSize.text = "Size: \(metadata?.size ?? 0)"
           }
         }
     }
