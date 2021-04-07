@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -29,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        //setupRemoteConfig()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -47,6 +49,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    /*func setupRemoteConfig(){
+        let removeConfigDefaultValues = ["isButtonEnable": "true"] as NSObject
+        
+        RemoteConfig.remoteConfig().setDefaults((removeConfigDefaultValues as! [String: NSObject]))
+        
+        // escorto
+        let debugSettimgs = RemoteConfigSettings()
+        debugSettimgs.minimumFetchInterval = 0
+        RemoteConfig.remoteConfig().configSettings = debugSettimgs
+        
+        RemoteConfig.remoteConfig().fetch { (status, error) in
+            if status == .success{
+                RemoteConfig.remoteConfig().activate { (bool, error) in
+                    print("Activado")
+                }
+            }
+        }
+    }*/
 }
 
