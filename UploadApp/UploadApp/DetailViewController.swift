@@ -10,15 +10,20 @@ import Firebase
 import CoreServices
 import FirebaseUI
 
+protocol CanReceive {
+    func passDataBack(imageRef: StorageReference, currentImage: Int)
+}
 class DetailViewController: UIViewController {
     
     var imageRef: StorageReference
+    var currentImage: Int
     let placeholerImage = UIImage(named: "placeholder")
     let storage = Storage.storage()
     
     required init?(coder aDecoder: NSCoder) {
         let storageRef = storage.reference()
         self.imageRef = storageRef.child("images/profile/userProfile.png")
+        self.currentImage = 0
         super.init(coder: aDecoder)
     }
     
@@ -31,6 +36,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
+    var delegate:CanReceive?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +46,7 @@ class DetailViewController: UIViewController {
     }
     
     func setImageValues(){
+        print("pppppp: \(self.currentImage)")
         let forestRef = imageRef
         forestRef.getMetadata { metadata, error in
           if let error = error {
@@ -64,6 +72,10 @@ class DetailViewController: UIViewController {
             print("Sucess")
           }
         }
+        print("iiiiiii: \(self.currentImage)")
+        delegate?.passDataBack(imageRef: imageRef, currentImage: currentImage)
+        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

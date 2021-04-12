@@ -223,6 +223,7 @@
                     <connections>
                         <outlet property="ImageCarousel" destination="Tke-MA-NAz" id="ukO-gN-Phg"/>
                         <outlet property="LeftOut" destination="TC0-LP-f9O" id="t8r-kv-km0"/>
+                        <outlet property="RightButton" destination="LFt-aj-vyI" id="3bd-X5-vj1"/>
                         <outlet property="uploadButton" destination="6V2-dG-dej" id="b9c-cG-euE"/>
                         <segue destination="Bwx-DP-106" kind="show" id="ngN-1s-K9I"/>
                     </connections>

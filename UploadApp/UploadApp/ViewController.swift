@@ -10,16 +10,30 @@ import Firebase
 import CoreServices
 import FirebaseUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CanReceive {
+    func passDataBack(imageRef: StorageReference, currentImage: Int) {
+        print("images before deleted: \(images)")
+        print("currentImage deleted: \(self.currentImage)")
+        self.images.remove(at: self.currentImage)
+        self.currentImage = 0
+        print("currentImage new: \(self.currentImage)")
+        print("images after deleted: \(images)")
+        if images.count > 0 {
+            ImageCarousel.sd_setImage(with: images[self.currentImage], placeholderImage: self.placeholerImage)
+        } else {
+            ImageCarousel.image = self.placeholerImage
+        }
+    }
+    
     // Outlets
     @IBOutlet weak var ImageCarousel: UIImageView!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var LeftOut: UIButton!
+    @IBOutlet weak var RightButton: UIButton!
     
     // Variables
     var currentImage: Int = 0
     var maxImageListSize: Int = 0
-    let photoList: Array = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3"), UIImage(named: "4"), UIImage(named: "5")]
     let placeholerImage = UIImage(named: "placeholder")
     
     var images: [StorageReference] = []
@@ -30,8 +44,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        LeftOut.isEnabled = false
-        
+        LeftOut.isEnabled = true
+        RightButton.isEnabled = true
         donwloadAll()
     }
     
@@ -47,22 +61,22 @@ class ViewController: UIViewController {
 
     @IBAction func RightAction(_ sender: Any) {
         LeftOut.isEnabled = true
-        currentImage = currentImage + 1
-        if currentImage < images.count{
-            ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
-        } else {
-            currentImage = 0
-            ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
-        }
+                currentImage = currentImage + 1
+        if currentImage < images.count && images.count > 0{
+                    ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
+                } else {
+                    currentImage = 0
+                    ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
+                }
     }
     
     @IBAction func LeftAction(_ sender: Any) {
         currentImage = currentImage - 1
         if currentImage >= 0{
-            ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
-        } else {
-            LeftOut.isEnabled = false
-        }
+                    ImageCarousel.sd_setImage(with: images[currentImage], placeholderImage: self.placeholerImage)
+                } else {
+                    LeftOut.isEnabled = false
+                }
     }
     
     @IBAction func uploadImage(_ sender: Any) {
@@ -93,9 +107,14 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             } else{
                 print("Image metadata: \(String(describing: metadata))")
+                self.downloadImage(imageDownloadUrlRef: imageRef)
+                print("uoload photo: \(self.images)")
+                print("uoload photo: \(self.images.count)")
+                print("uoload photo: \(self.currentImage)")
+                self.ImageCarousel.sd_setImage(with: self.images[self.images.count - 1], placeholderImage: self.placeholerImage)
+                self.currentImage = self.images.count - 1
             }
         }
-        downloadImage(imageDownloadUrlRef: imageRef)
     }
     
     func downloadImage(imageDownloadUrlRef: StorageReference){
@@ -126,15 +145,20 @@ class ViewController: UIViewController {
             if self.images.count > 0{
                 self.ImageCarousel.sd_setImage(with: self.images[self.currentImage], placeholderImage: self.placeholerImage)
             } else {
-                self.ImageCarousel.image = self.photoList[self.currentImage]
+                self.ImageCarousel.image = self.placeholerImage
+                self.LeftOut.isEnabled = false
+                self.RightButton.isEnabled = false
             }
             self.maxImageListSize = self.images.count
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("sssss: \(self.currentImage)")
         let vc = segue.destination as? DetailViewController
         vc?.imageRef = self.images[self.currentImage]
+        vc?.currentImage = self.currentImage
+        vc?.delegate = self
     }
 }
 
