@@ -46,13 +46,11 @@ class DetailViewController: UIViewController {
     }
     
     func setImageValues(){
-        print("pppppp: \(self.currentImage)")
         let forestRef = imageRef
         forestRef.getMetadata { metadata, error in
           if let error = error {
             print("An error had happended: \(error)")
           } else {
-            print("wwwwwwwttttt: \(String(describing: metadata))")
             self.detailImage.sd_setImage(with: self.imageRef, placeholderImage: self.placeholerImage)
             self.imageName.text = "Nombre: \(metadata?.name ?? "")"
             self.imageDatetime.text = "Fecha: \(metadata?.timeCreated ?? Date())"
@@ -72,7 +70,6 @@ class DetailViewController: UIViewController {
             print("Sucess")
           }
         }
-        print("iiiiiii: \(self.currentImage)")
         delegate?.passDataBack(imageRef: imageRef, currentImage: currentImage)
         dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
