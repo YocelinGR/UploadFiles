@@ -12,12 +12,8 @@ import FirebaseUI
 
 class ViewController: UIViewController, CanReceive {
     func passDataBack(imageRef: StorageReference, currentImage: Int) {
-        print("images before deleted: \(images)")
-        print("currentImage deleted: \(self.currentImage)")
         self.images.remove(at: self.currentImage)
         self.currentImage = 0
-        print("currentImage new: \(self.currentImage)")
-        print("images after deleted: \(images)")
         if images.count > 0 {
             ImageCarousel.sd_setImage(with: images[self.currentImage], placeholderImage: self.placeholerImage)
         } else {
@@ -51,12 +47,10 @@ class ViewController: UIViewController, CanReceive {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("viewDidAppear")
     }
 
     @IBAction func RightAction(_ sender: Any) {
@@ -108,9 +102,6 @@ class ViewController: UIViewController, CanReceive {
             } else{
                 print("Image metadata: \(String(describing: metadata))")
                 self.downloadImage(imageDownloadUrlRef: imageRef)
-                print("uoload photo: \(self.images)")
-                print("uoload photo: \(self.images.count)")
-                print("uoload photo: \(self.currentImage)")
                 self.ImageCarousel.sd_setImage(with: self.images[self.images.count - 1], placeholderImage: self.placeholerImage)
                 self.currentImage = self.images.count - 1
             }
@@ -138,10 +129,7 @@ class ViewController: UIViewController, CanReceive {
           }
           for item in result.items {
             self.downloadImage(imageDownloadUrlRef: item)
-            print("ITEMS: \(item)")
           }
-            
-            print(">>>>>>>>><images: \(self.images)")
             if self.images.count > 0{
                 self.ImageCarousel.sd_setImage(with: self.images[self.currentImage], placeholderImage: self.placeholerImage)
             } else {
@@ -154,7 +142,6 @@ class ViewController: UIViewController, CanReceive {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("sssss: \(self.currentImage)")
         let vc = segue.destination as? DetailViewController
         vc?.imageRef = self.images[self.currentImage]
         vc?.currentImage = self.currentImage
