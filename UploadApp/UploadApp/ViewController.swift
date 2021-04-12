@@ -29,7 +29,6 @@ class ViewController: UIViewController, CanReceive {
     
     // Variables
     var currentImage: Int = 0
-    var maxImageListSize: Int = 0
     let placeholerImage = UIImage(named: "placeholder")
     
     var images: [StorageReference] = []
@@ -85,10 +84,9 @@ class ViewController: UIViewController, CanReceive {
         activityIndicator.startAnimating()
         activityIndicator.center = self.view.center
         self.view.addSubview(activityIndicator)
-        let imagesCount = maxImageListSize
+        let imagesName = randomString(length: 8)
         let storageRef = storage.reference()
-        let imageRef = storageRef.child("uploadapp").child("E0JQZWeWPrYvDUAF98QLanwUurk1").child("\(imagesCount + 1).jpg")
-        maxImageListSize += 1
+        let imageRef = storageRef.child("uploadapp").child("E0JQZWeWPrYvDUAF98QLanwUurk1").child("\(imagesName).jpg")
         // metadata
         let uploadMetaData = StorageMetadata()
         uploadMetaData.contentType = "image/jpeg"
@@ -137,7 +135,6 @@ class ViewController: UIViewController, CanReceive {
                 self.LeftOut.isEnabled = false
                 self.RightButton.isEnabled = false
             }
-            self.maxImageListSize = self.images.count
         }
     }
     
@@ -146,6 +143,22 @@ class ViewController: UIViewController, CanReceive {
         vc?.imageRef = self.images[self.currentImage]
         vc?.currentImage = self.currentImage
         vc?.delegate = self
+    }
+    
+    func randomString(length: Int) -> String {
+
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+
+        var randomString = ""
+
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+
+        return randomString
     }
 }
 
